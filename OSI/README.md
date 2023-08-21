@@ -1,9 +1,9 @@
 # OSI (Open Systems Interconnection) 📶
 Model Referensi OSI (Open Systems Interconnection) adalah kerangka kerja konseptual yang digunakan untuk memahami dan menggambarkan bagaimana komunikasi jaringan komputer berfungsi. Model ini dikembangkan oleh International Organization for Standardization (ISO) sebagai cara untuk mengatur dan mengklasifikasikan fungsi-fungsi yang terlibat dalam komunikasi jaringan.
 
-<div style="text-align:center">
-    <img src="resource/osi-model-1.jpg" alt="Image Description" height="30">
-</div>
+ <p align = "center">
+        <img src="resource/trackbarLine.png" alt="Image" width ="500" />
+</p>
 
 Model OSI terdiri dari 7 lapisan yang masing-masing memiliki fungsi khusus dalam proses komunikasi. Ini membantu memecah proses kompleks komunikasi menjadi komponen yang lebih sederhana dan teratur. Lapisan-lapisan ini bekerja bersama untuk mengatur dan mengelola pengiriman data antara perangkat pada jaringan yang berbeda.
 
