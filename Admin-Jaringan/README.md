@@ -1,6 +1,6 @@
 # ADMIN JARINGAN
 # Daftar Isi
-
+di sini saya menjelaskan tentang beberapa protocol header, Analisis jaringan, dan juga tools/aplikasi yang bisa di pakai untuk uji coba jaringan. Yaitu:
 ### 1. [Analisis Telnet, DNS, dan HTTP](#main_analyze)
    - [Analisis Telnet](#telnet_analyze)
    - [Analisis DNS](#dns_analyze)
