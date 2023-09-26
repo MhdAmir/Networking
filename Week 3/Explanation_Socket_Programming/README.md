@@ -229,34 +229,31 @@ Di bagian ini, program mencoba untuk terhubung ke server menggunakan connect. Ji
 
 ```c
 while (1) {
-    printf("How many character you want to send? ");
-    
-    int amount;
-    scanf("%d", &amount);
+    int n;
+    printf("How many n do you want to input? ");
+    scanf("%d", &n);
 
-    bzero(buffer,amount);
-
-    for(int i=0; i<amount; i++){
+    bzero(buffer,n);
+    for(int i=0; i<n; i++){
         buffer[i] = 'a';
     }
-    buffer[amount] = '\0';
+    buffer[n] = '\0';
     
     n = write(sockfd,buffer,strlen(buffer));
-
     if (n < 0){
         perror("ERROR while writing to socket");
         exit(1);
     }
+    bzero(buffer,n);
 
-    bzero(buffer,256);
-    n = read(sockfd, buffer, 255);
-
+    n = read(sockfd, buffer, n);
     if (n < 0){
         perror("ERROR while reading from socket");
         exit(1);
     }
-    printf("server replied: %s \n", buffer);
 
+    printf("server replied: %s \n", buffer);
+    // escape this loop, if the server sends message "quit"
     if (!bcmp(buffer, "quit", 4))
         break;
 }
@@ -268,12 +265,26 @@ Kemudian, program mengisi buffer dengan karakter 'a' sebanyak yang diminta oleh 
 
 Jika terjadi kesalahan dalam penulisan atau pembacaan data, pesan kesalahan dicetak, dan program keluar.Program mencetak respons dari server dan memeriksa apakah respons tersebut adalah "quit". Jika ya, program akan keluar dari loop utama, mengakhiri komunikasi dengan server.
 
-## Percobaan
+## Percobaan 1
 
-Dalam percobaan ini saya mencoba untuk mengirim pesan string 'a' dengan panjang 4 dan 5. Pesan tersebut diterima server lalu dikirimkan lagi ke client dengan sukses.
+Dalam percobaan ini saya mencoba untuk mengirim pesan string 'n' dengan panjang 5000. Pesan tersebut diterima server lalu dikirimkan lagi ke client dengan sukses. namun dari sisi server 
 
-<img src="./assets/socket.png">
+### yang dilakukan oleh client :
+<img src="./assets/terminaluntilN.png">
+disini client ke server akan mengirim sebanyak n yang kita inputkan, disini menginputkan 5000.
 
+<img src="./assets/untilN.png">
+melihat wireshark disisi client, client -> server akan mengirim langsung 5000.namun di sisi server -> client akan mengirim dibagi segment segment yaitu 1448, 1448, 1448, 659.
+
+## Percobaan 2
+
+dalam percobaan ini, mencoba mengirim 5000 namun menjadi server dan melihat disisi wiresharknya. 
+
+<img src="./assets/serverUntilN.png">
+
+disini client -> server dibagi menjadi 2 segment yaitu 2896 dan 2104. dan di kembalikan server -> client dibagi 2 segment juga yaitu 2896 dan 2107. 
+
+---
 ## Weireshark Analisis
 
 <img src="./assets/wireshark.jpg">
