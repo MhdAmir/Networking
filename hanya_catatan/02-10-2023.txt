@@ -1,0 +1,51 @@
+logical adrress => adrress bisa diganti ganti tidak tergantung pada hardware
+
+physical address => address tergantung pada hardware
+
+tugas layer 3 :
+mencari best route
+
+tugas layar 2 :
+
+ 
+tugas dari IP di layer 3 (network):
+- yang mengkordinasi ICANN Internet Corpora
+- sifatnya hanya mengkoordinasi
+- 
+
+Struktur IP Address:
+- IPv4 => 32 bit dibagi menjadi 4 oktet (oktav)
+xxxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx in binary
+xxx.xxx.xxx.xxx convert to decimal
+ IP address
+     |
+     |
+ ----------
+ |        |
+
+
+kelas A 0-127
+kelas B 128-191
+kelas C 192-223
+kelas D(multi cast): one to many
+kelas E(research only)
+
+212.5.5.6 (kelas C)= 
+	netID => 212.5.5.0 range 212.5.5.1 -> 212.5.5.254 broadcast : 212.5.5.255
+	hostID => 0.0.0.6
+
+1.2.3.4 (kelas A) = 
+	netID => 1.0.0.0
+	hostID => 0.2.3.4
+
+180.5.40.254 (kelas B) = 
+	netID => 180.5.0.0 range 180.5.0.1 -> 180.5.255.254 broadcast : 180.5.255.255
+	hostID => 0.0.40.254 
+
+special address
+- kelas A
+127.x.x.x loopback address
+0.0.0.0   any address
+
+- kelas B
+169.254.0.0 IPv4 link-local addresses
