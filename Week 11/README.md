@@ -11,16 +11,16 @@ membuat 4 Router seperti di bawah dengan subnetting sesuai yang ditentukan denga
 ---
 
 #### Router 0 Static
-![](assets/route0.png)
+![](assets/Router0.png)
 
 #### Router 1 Static
-![](assets/route1.png)
+![](assets/Router1.png)
 
 #### Router 2 Static
-![](assets/route2.png)
+![](assets/Router2.png)
 
 #### Router 3 Static
-![](assets/route3.png)
+![](assets/Router3.png)
 
 ---
 
@@ -32,3 +32,6 @@ membuat 4 Router seperti di bawah dengan subnetting sesuai yang ditentukan denga
 
 ### Perhitungan Jika 62 PC 
 ![](assets/perhitungan3.jpg)
+
+## Contoh Melakukan Ping
+![](assets/ping.png)
