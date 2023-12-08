@@ -1,5 +1,9 @@
 # Essay Dynamic Routing
+## Tentang Projek
 
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
 #### :memo: Pengantar <br>
 Jaringan komputer modern merupakan jantung dari komunikasi dan pertukaran data di seluruh dunia. Dalam jaringan yang kompleks dan berukuran besar, rute pengiriman data adalah elemen kunci yang menentukan bagaimana informasi bergerak dari satu titik ke titik lain. Salah satu teknik yang penting dan efektif dalam mengelola rute pengiriman ini adalah dynamic routing.<br>
 

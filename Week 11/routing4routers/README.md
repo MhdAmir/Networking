@@ -1,4 +1,10 @@
 # Subnetting Router
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 ## Task
 membuat 4 Router seperti di bawah dengan subnetting sesuai yang ditentukan dengan host yang digunakan, dan semua menggunakan kelas C
 ![](assets/soal.jpg)

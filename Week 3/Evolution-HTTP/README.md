@@ -1,9 +1,17 @@
 # Evolusi HTTP - HTTP/0.9, HTTP/1.0, HTTP/1.1, Keep-Alive, Upgrade, dan HTTPS
+
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 <div align = "center">
         <img src="assets/example URL.gif" alt="Image" width ="500" />
 </div>
 
 ## HTTP/0.9 - Protokol Satu Baris
+
 - Versi awal HTTP - protokol client-server, request-response, dan protokol telnet-friendly
 
 - Sifat permintaan: satu baris (metode + jalur untuk dokumen yang diminta)
@@ -26,6 +34,7 @@
 Server web populer (Apache, Nginx) masih mendukung HTTP/0/9. Coba buka sesi Telnet dan akses google.com
 
 ## HTTP/1.0 - Membangun ekstensibilitas
+
 - Protokol yang ramah peramban
 
 - Bidang header yang disediakan termasuk metadata yang kaya tentang permintaan dan respons (nomor versi HTTP, kode status, jenis konten)
@@ -38,16 +47,16 @@ Server web populer (Apache, Nginx) masih mendukung HTTP/0/9. Coba buka sesi Teln
 
         (Connection 1 Establishment - TCP Three-Way Handshake)
         Connected to xxx.xxx.xxx.xxx(Request)
-        GET /my-page.html HTTP/1.0 
+        GET /my-page.html HTTP/1.0
         User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)(Response)
-        HTTP/1.0 200 OK 
-        Content-Type: text/html 
+        HTTP/1.0 200 OK
+        Content-Type: text/html
         Content-Length: 137582
         Expires: Thu, 01 Dec 1997 16:00:00 GMT
         Last-Modified: Wed, 1 May 1996 12:45:26 GMT
         Server: Apache 0.84
 
-        <HTML> 
+        <HTML>
         A page with an image
         <IMG SRC="/myimage.gif">
         </HTML>(Connection 1 Closed - TCP Teardown)------------------------------------------(Connection 2 Establishment - TCP Three-Way Handshake)
@@ -56,19 +65,21 @@ Server web populer (Apache, Nginx) masih mendukung HTTP/0/9. Coba buka sesi Teln
         User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
 
         (Response)
-        HTTP/1.0 200 OK 
-        Content-Type: text/gif 
+        HTTP/1.0 200 OK
+        Content-Type: text/gif
         Content-Length: 137582
         Expires: Thu, 01 Dec 1997 16:00:00 GMT
         Last-Modified: Wed, 1 May 1996 12:45:26 GMT
         Server: Apache 0.84[image content](Connection 2 Closed - TCP Teardown)
 
 ### Membuat koneksi baru untuk setiap request - masalah utama pada HTTP/0.9 dan HTTP/1.0
+
 Baik HTTP/0.9 maupun HTTP/1.0 harus membuka koneksi baru untuk setiap permintaan (dan menutupnya segera setelah respons dikirim). Setiap kali koneksi baru terbentuk, three-way handshake TCP juga harus terjadi. Untuk kinerja yang lebih baik, sangat penting untuk mengurangi perjalanan bolak-balik antara klien dan server. HTTP/1.1 memecahkan masalah ini dengan koneksi persisten.
 
 three-way handshake TCP yang khas (lihat bagaimana mesin status TCP mengubah statusnya) dari [lwn.net](https://lwn.net/Articles/508865/)
 
 ## HTTP/1.1 — The standardized protocol
+
 <p align = "center">
         <img src="assets/1.0vs1.1.gif" alt="Image" width ="500" />
 </p>
@@ -127,10 +138,12 @@ three-way handshake TCP yang khas (lihat bagaimana mesin status TCP mengubah sta
 
         [image content of 3077 bytes](Connection 1 Closed - TCP Teardown)
 
-Sebelum membuat koneksi apa pun, three-way handshake TCP terjadi. Pada akhirnya, setelah mengirimkan semua data ke Klien, Server mengirimkan pesan yang mengatakan bahwa tidak ada lagi data yang akan dikirim. Kemudian klien menutup koneksi (TCP teardown). Masalah dalam HTTP/1.0 adalah, untuk setiap siklus request-response, sebuah koneksi perlu dibuka dan ditutup. Dan keuntungan menggunakan HTTP/1.1 adalah, kita dapat menggunakan kembali koneksi terbuka yang sama untuk beberapa siklus request-response. 
+Sebelum membuat koneksi apa pun, three-way handshake TCP terjadi. Pada akhirnya, setelah mengirimkan semua data ke Klien, Server mengirimkan pesan yang mengatakan bahwa tidak ada lagi data yang akan dikirim. Kemudian klien menutup koneksi (TCP teardown). Masalah dalam HTTP/1.0 adalah, untuk setiap siklus request-response, sebuah koneksi perlu dibuka dan ditutup. Dan keuntungan menggunakan HTTP/1.1 adalah, kita dapat menggunakan kembali koneksi terbuka yang sama untuk beberapa siklus request-response.
 
 ## Keep-Alive and Upgrade headers
+
 ### Keep-Alive header
+
 <p align = "center">
         <img src="assets/pipelining and multiple connection.gif" alt="Image" width ="500" />
 </p>
@@ -147,9 +160,10 @@ Sebelum membuat koneksi apa pun, three-way handshake TCP terjadi. Pada akhirnya,
         Last-Modified: Mon, 25 Jul 2016 04:32:39 GMT
         Server: Apache
 
-        [body] 
+        [body]
 
 Contoh diatas menunjukkan bagaimana header Keep-Alive dapat digunakan. Semua koneksi dinegosiasikan secara independen. Klien menunjukkan batas waktu 600 detik (10 menit), tetapi proxy hanya siap untuk mempertahankan koneksi setidaknya selama 120 detik (2 menit). Pada sambungan antara proxy dan server, proxy meminta batas waktu 1200 detik dan server menguranginya menjadi 300 detik. Seperti yang ditunjukkan contoh ini, kebijakan batas waktu yang dipertahankan oleh proxy berbeda untuk setiap koneksi. Setiap lompatan koneksi bersifat independen.
+
 - Pipelining HTTP, banyak koneksi, dan banyak lagi peningkatan telah diimplementasikan, berkat perilaku header Keep-Alive.
 
 ### Upgrade header
@@ -157,10 +171,10 @@ Contoh diatas menunjukkan bagaimana header Keep-Alive dapat digunakan. Semua kon
 - Dengan Upgrade header yang diperkenalkan di HTTP/1.1, dimungkinkan untuk memulai koneksi menggunakan protokol yang umum digunakan, seperti HTTP/1.1, kemudian meminta agar koneksi beralih ke jenis protokol yang disempurnakan seperti HTTP/2.0 atau WebSockets.
 
 - Pada koneksi protokol yang ditingkatkan, parameter max (jumlah permintaan maksimum) tidak ada. Protokol yang ditingkatkan dapat memberikan kebijakan baru untuk parameter timeout (jika tidak ditentukan secara khusus, protokol ini menggunakan nilai timeout default pada protokol yang mendasarinya).
-Contoh dari ietf.org ini menunjukkan header yang disertakan dalam peningkatan dari HTTP/1.1 ke WebSocket [RFC6455]. Dengan peningkatan websocket, koneksi pada setiap hop tidak dapat memiliki siklus hidup yang independen di kedua sisi perantara. Setelah peningkatan, kebijakan batas waktu tidak dapat berdiri sendiri untuk setiap koneksi. Proxy menyesuaikan nilai batas waktu untuk mencerminkan nilai yang lebih rendah dari nilai yang ditetapkan oleh klien dan kebijakan proxy sehingga server mengetahui karakteristik koneksi; demikian pula, nilai dari server diberikan kepada klien. Peningkatan dikatakan sebagai header hop-by-hop.
-
+  Contoh dari ietf.org ini menunjukkan header yang disertakan dalam peningkatan dari HTTP/1.1 ke WebSocket [RFC6455]. Dengan peningkatan websocket, koneksi pada setiap hop tidak dapat memiliki siklus hidup yang independen di kedua sisi perantara. Setelah peningkatan, kebijakan batas waktu tidak dapat berdiri sendiri untuk setiap koneksi. Proxy menyesuaikan nilai batas waktu untuk mencerminkan nilai yang lebih rendah dari nilai yang ditetapkan oleh klien dan kebijakan proxy sehingga server mengetahui karakteristik koneksi; demikian pula, nilai dari server diberikan kepada klien. Peningkatan dikatakan sebagai header hop-by-hop.
 
 ## HTTPS
+
 - Hyper Text Transfer Protocol Secure (HTTPS) adalah versi aman dari HTTP. HTTPS menggunakan SSL/TLS untuk komunikasi terenkripsi yang aman.
 
 - Awalnya dikembangkan oleh Netscape pada pertengahan tahun 1990-an, SSL (Secure Socket Layer) adalah protokol kriptografi yang meningkatkan HTTP, yang mendefinisikan bagaimana klien dan server harus berkomunikasi satu sama lain dengan aman. TLS (Transport Layer Security) adalah penerus SSL.
@@ -169,7 +183,9 @@ Contoh dari ietf.org ini menunjukkan header yang disertakan dalam peningkatan da
 Representasi diagramatik dari SSL Handshake dari msdn.microsoft.com - Koneksi TCP > SSL/TLS Client Hello > SSL/TLS Server Hello > SSL/TLS Certificate > SSL/TLS Client Key Exchange > SSL/TLS New Session Ticket > Pertukaran Data Terenkripsi HTTPS
 
 ### SSL/TLS Handshake- masalah utama dalam HTTPS
+
 - Meskipun HTTPS aman berdasarkan desainnya, proses SSL/TLS handshake menghabiskan waktu yang cukup lama sebelum membuat koneksi HTTPS. Proses ini biasanya memakan waktu 1-2 detik dan secara drastis memperlambat kinerja startup situs web.
 
 ## HTTP/2.0 dan masa depan
+
 Semua fitur di atas digunakan oleh server web dan peramban utama saat ini. Tetapi peningkatan modern seperti HTTP/2.0, Server Side Events (SSE), dan Websockets telah mengubah cara kerja HTTP tradisional. Dalam artikel saya berikutnya tentang Desain API Web dengan HTTP dan Websockets, kita akan membahas bagaimana kita harus memilihnya dalam proyek-proyek dunia nyata.

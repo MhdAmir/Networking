@@ -1,4 +1,10 @@
 # Cisco Packet Tracer
+
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
 ## Ping Over Device with different Router
 Ping adalah salah satu perintah yang digunakan dalam Packet Tracer, yang merupakan perangkat lunak simulasi jaringan yang dikembangkan oleh Cisco. Perintah ping digunakan untuk menguji konektivitas antara dua perangkat atau host dalam jaringan.
 

@@ -1,5 +1,11 @@
 # SOCKET PROGRAMMING
 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 ## Source Code
 
 ### 1. Server - `server.c`
@@ -161,7 +167,6 @@ if (strlen(buffer) == 0) {
 
 Jika data yang diterima tidak kosong, maka program akan memeriksa apakah telah terjadi timeout. Jika tidak ada data yang diterima dalam waktu lebih dari 5 detik (sesuai dengan pengukuran waktu), maka koneksi akan dianggap timeout, dan proses anak akan menutup koneksi klien dan keluar dari loop.
 
-
 ```c
 printf("Process %d: Received `%s`. Processing... ", getpid(), buffer);
 
@@ -238,7 +243,7 @@ while (1) {
         buffer[i] = 'a';
     }
     buffer[n] = '\0';
-    
+
     n = write(sockfd,buffer,strlen(buffer));
     if (n < 0){
         perror("ERROR while writing to socket");
@@ -267,9 +272,10 @@ Jika terjadi kesalahan dalam penulisan atau pembacaan data, pesan kesalahan dice
 
 ## Percobaan 1
 
-Dalam percobaan ini saya mencoba untuk mengirim pesan string 'n' dengan panjang 5000. Pesan tersebut diterima server lalu dikirimkan lagi ke client dengan sukses. namun dari sisi server 
+Dalam percobaan ini saya mencoba untuk mengirim pesan string 'n' dengan panjang 5000. Pesan tersebut diterima server lalu dikirimkan lagi ke client dengan sukses. namun dari sisi server
 
 ### yang dilakukan oleh client :
+
 <img src="./assets/terminaluntilN.png">
 disini client ke server akan mengirim sebanyak n yang kita inputkan, disini menginputkan 5000.
 
@@ -278,13 +284,14 @@ melihat wireshark disisi client, client -> server akan mengirim langsung 5000.na
 
 ## Percobaan 2
 
-dalam percobaan ini, mencoba mengirim 5000 namun menjadi server dan melihat disisi wiresharknya. 
+dalam percobaan ini, mencoba mengirim 5000 namun menjadi server dan melihat disisi wiresharknya.
 
 <img src="./assets/serverUntilN.png">
 
-disini client -> server dibagi menjadi 2 segment yaitu 2896 dan 2104. dan di kembalikan server -> client dibagi 2 segment juga yaitu 2896 dan 2107. 
+disini client -> server dibagi menjadi 2 segment yaitu 2896 dan 2104. dan di kembalikan server -> client dibagi 2 segment juga yaitu 2896 dan 2107.
 
 ---
+
 ## Weireshark Analisis
 
 <img src="./assets/wireshark.jpg">

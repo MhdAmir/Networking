@@ -1,10 +1,20 @@
 # ADMIN JARINGAN
+
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 # Daftar Isi
+
 di sini saya menjelaskan tentang beberapa protocol header, Analisis jaringan, dan juga tools/aplikasi yang bisa di pakai untuk uji coba jaringan. Yaitu:
+
 ### 1. [Analisis Telnet, DNS, dan HTTP](#main_analyze)
-   - [Analisis Telnet](#telnet_analyze)
-   - [Analisis DNS](#dns_analyze)
-   - [Analisis HTTP](#http_analyze)
+
+- [Analisis Telnet](#telnet_analyze)
+- [Analisis DNS](#dns_analyze)
+- [Analisis HTTP](#http_analyze)
 
 ### 2. [TCP Header](#tcp_header)
 
@@ -16,25 +26,28 @@ di sini saya menjelaskan tentang beberapa protocol header, Analisis jaringan, da
 
 ### 6. [Apa itu trecert ?](#trecert)
 
-
-
-
 <a id="main_analyze"></a>
+
 ## Analisis Telnet, DNS, dan HTTP
+
 analisis disini menggunakan aplikasi wireshark dan wireshark capture yang bisa yang bisa anda download [disini](https://wiki.wireshark.org/SampleCaptures)
 
 <a id="telnet_analyze"></a>
+
 ### 1. Analisis Telnet
+
 Telnet adalah sebuah protokol jaringan yang digunakan untuk mengakses dan mengendalikan perangkat jarak jauh melalui jaringan. Biasanya, Telnet digunakan untuk mengakses shell atau lingkungan baris perintah pada perangkat jarak jauh seperti server, router, atau perangkat lainnya yang memiliki kemampuan koneksi jaringan.
 
 Dalam penggunaannya, Telnet memungkinkan pengguna untuk terhubung ke perangkat jarak jauh dan berinteraksi dengan sistem tersebut seolah-olah mereka sedang duduk di depan perangkat itu sendiri. Pengguna dapat memasukkan perintah, menjalankan program, dan melihat output dari perangkat jarak jauh ini melalui koneksi Telnet.
 
 #### Contoh Wireshark dari protokol jaringan telnet :
+
 <p align = "center">
         <img src="Assets/telnet_cao.png" alt="Image" height ="500" />
 </p>
 
 #### Analisis :
+
 dari sini, kita bisa tau header, ip dari pengguna yaitu 192.168.0.2, dan ip server/pc yang di remote yaitu : 192.168.0.1. dan dari sini juga kita bisa tau port yang digunakan oleh client yaitu 1550 (protocol : UDP/TCP) dan juga server/pc yang di remote yaitu 23 (protocol : TCP | service : Telnet).
 
 <p align = "center">
@@ -44,15 +57,19 @@ dari sini, kita bisa tau header, ip dari pengguna yaitu 192.168.0.2, dan ip serv
 di aplikasi wireshark juga bisa melihat follow TCP atau apa yang terjadi pada pada protocol TCP. disini kita bisa lihat yang warna kemerahan itu adalah kiriman dari client (yang me-remote server/pc) dan yang biru adalah balasan dari server/pc yang di remote.
 
 <a id="dns_analyze"></a>
+
 ### 2. Analisis DNS
+
 DNS adalah singkatan dari "Domain Name System" (Sistem Nama Domain). Ini adalah sistem yang digunakan dalam jaringan komputer untuk mengubah nama domain yang mudah diingat (seperti www.contoh.com) menjadi alamat IP numerik yang diperlukan oleh komputer untuk berkomunikasi satu sama lain di internet. DNS memungkinkan manusia untuk menggunakan nama domain yang mudah diingat saat mengakses situs web atau layanan online, sementara komputer menggunakan alamat IP untuk mengidentifikasi dan berkomunikasi dengan server yang tepat.
 
 #### Contoh Wireshark dari DNS :
+
 <p align = "center">
         <img src="Assets/dns_cap.png" alt="Image" height ="500" />
 </p>
 
 #### Analisis :
+
 dari data di atas, kita bisa tau Internet protocol dari Client dan Protocol dari server yaitu : client = 192.168.170.8 & server = 192.168.170.20
 dan ada port yang digunakan dari client dan server yaitu client : 32795 & server : 53
 
@@ -63,17 +80,21 @@ dan ada port yang digunakan dari client dan server yaitu client : 32795 & server
 sama seperti telnet, pada analisis follow udp stream ada yang terjadi pada client (warna kemerahan) dan server (warna kebiruan).
 
 ### 3. Analisis HTTP
+
 HTTP adalah singkatan dari "Hypertext Transfer Protocol" (Protokol Transfer Hiperteks). Ini adalah protokol yang digunakan untuk mengirimkan data antara klien (seperti peramban web) dan server di World Wide Web. HTTP digunakan untuk mengatur cara permintaan dan respon data, terutama dalam konteks halaman web, tetapi juga digunakan dalam berbagai aplikasi berbasis web.
 
 HTTP beroperasi pada layer aplikasi dalam model referensi OSI (Open Systems Interconnection). Model OSI adalah kerangka kerja yang menggambarkan cara berinteraksi dan berkomunikasi antara berbagai komponen jaringan. Pada model OSI, HTTP berada pada Layer 7 atau Layer Aplikasi. Ini adalah lapisan tertinggi dalam model dan bertanggung jawab atas komunikasi antara aplikasi di kedua ujung koneksi jaringan.
 
 <a id="http_analyze"></a>
+
 #### Contoh Wireshark dari HTTP :
+
 <p align = "center">
         <img src="Assets/http_cap.png" alt="Image" height ="500" />
 </p>
 
 #### Analisis :
+
 dari wireshark ini, kita bisa tau dari IP client dan juga server dan juga port yang digunakan sama seperti analisis sebelumnya.
 
 IP client : 145.254.160.237
@@ -89,25 +110,27 @@ dan juga kita bisa tahu bahwa terjadi proses encoding dari image xml dan lain la
 akan dikirimkannya header dari client (warna kemerahan) dan diterima oleh server(warna kebiruan) dan tanda jika berhasil ada tanda OK pada _HTTP/1.200 OK_ dan akan di tampilkan halaman dari webnya.
 
 <a id="tcp_header"></a>
+
 ## TCP Header
+
 <p align = "center">
         <img src="Assets/tcp_header.avif" alt="Image" height ="500" />
 </p>
 
 Header TCP (Transmission Control Protocol) adalah bagian dari struktur data yang digunakan untuk mengemas dan mengirimkan data melalui koneksi TCP dalam jaringan komputer. TCP adalah protokol yang berorientasi pada koneksi dan dapat diandalkan, yang memastikan pengiriman data yang akurat, terurut, dan tanpa kerusakan antara pengirim dan penerima. Berikut adalah beberapa bidang utama yang ada dalam header TCP:
 
-1. Port Sumber (Source Port): Ini adalah nomor port yang mengidentifikasi proses pengirim data di komputer pengirim.
+1.  Port Sumber (Source Port): Ini adalah nomor port yang mengidentifikasi proses pengirim data di komputer pengirim.
 
-2. Port Tujuan (Destination Port): Ini adalah nomor port yang mengidentifikasi proses penerima data di komputer penerima.
+2.  Port Tujuan (Destination Port): Ini adalah nomor port yang mengidentifikasi proses penerima data di komputer penerima.
 
-3. Nomor Sekuens (Sequence Number): Nomor ini mengidentifikasi urutan data dalam aliran. Setiap byte dalam aliran data memiliki nomor urut yang unik.
+3.  Nomor Sekuens (Sequence Number): Nomor ini mengidentifikasi urutan data dalam aliran. Setiap byte dalam aliran data memiliki nomor urut yang unik.
 
-4. Nomor Konfirmasi (Acknowledgment Number): Nomor ini menunjukkan nomor urut dari byte berikutnya yang diharapkan diterima oleh pengirim. Ini digunakan dalam mekanisme pengakuan dan konfirmasi TCP.
+4.  Nomor Konfirmasi (Acknowledgment Number): Nomor ini menunjukkan nomor urut dari byte berikutnya yang diharapkan diterima oleh pengirim. Ini digunakan dalam mekanisme pengakuan dan konfirmasi TCP.
 
-5. Ukuran Header (Header Length): Ini menunjukkan panjang header TCP dalam kata (4-byte). Karena header TCP dapat mengandung opsi yang bervariasi dalam ukuran, nilai ini membantu untuk mengetahui di mana data aktual dimulai dalam segmen.
+5.  Ukuran Header (Header Length): Ini menunjukkan panjang header TCP dalam kata (4-byte). Karena header TCP dapat mengandung opsi yang bervariasi dalam ukuran, nilai ini membantu untuk mengetahui di mana data aktual dimulai dalam segmen.
 
-6. Flag Kontrol (Control Flags): Ini adalah serangkaian bit yang mengontrol perilaku koneksi TCP. Beberapa flag penting termasuk:
-        
+6.  Flag Kontrol (Control Flags): Ini adalah serangkaian bit yang mengontrol perilaku koneksi TCP. Beberapa flag penting termasuk:
+
         URG (Urgent): Menandakan adanya data penting dalam segmen yang memerlukan penanganan segera.
         ACK (Acknowledgment): Menunjukkan bahwa nomor konfirmasi valid dalam segmen.
         PSH (Push): Meminta penerima untuk segera meneruskan data ke aplikasi penerima.
@@ -115,18 +138,20 @@ Header TCP (Transmission Control Protocol) adalah bagian dari struktur data yang
         SYN (Synchronize): Menandakan permintaan koneksi atau inisialisasi koneksi.
         FIN (Finish): Menandakan bahwa pengirim telah selesai mengirim data dan ingin menutup koneksi.
 
-7. Ukuran Jendela (Window Size): Ukuran jendela mengindikasikan berapa banyak data yang dapat diterima oleh penerima sebelum pengirim perlu menunggu pengakuan.
+7.  Ukuran Jendela (Window Size): Ukuran jendela mengindikasikan berapa banyak data yang dapat diterima oleh penerima sebelum pengirim perlu menunggu pengakuan.
 
-8. Checksum: Checksum adalah nilai yang dihitung dari header dan data TCP untuk mendeteksi kesalahan selama transmisi.
+8.  Checksum: Checksum adalah nilai yang dihitung dari header dan data TCP untuk mendeteksi kesalahan selama transmisi.
 
-9. Pilihan (Options): Header TCP dapat mengandung opsi tambahan yang dapat digunakan untuk mengatur perilaku dan mengaktifkan fitur-fitur khusus, seperti penyesuaian ukuran jendela dan mekanisme pengiriman ulang yang lebih canggih.
+9.  Pilihan (Options): Header TCP dapat mengandung opsi tambahan yang dapat digunakan untuk mengatur perilaku dan mengaktifkan fitur-fitur khusus, seperti penyesuaian ukuran jendela dan mekanisme pengiriman ulang yang lebih canggih.
 
 10. Pointer Darurat (Urgent Pointer): Digunakan bersama dengan flag URG untuk menunjukkan posisi data yang mendesak dalam aliran.
 
 Header TCP memainkan peran penting dalam mengatur komunikasi antara komputer pengirim dan penerima melalui koneksi TCP. Setiap bidang dalam header memiliki fungsi spesifik yang membantu memastikan pengiriman data yang akurat dan andal di seluruh jaringan.
 
 <a id="udp_header"></a>
+
 ## UDP Header
+
 <p align = "center">
         <img src="Assets/udp_header.png" alt="Image" height ="500" />
 </p>
@@ -144,7 +169,9 @@ Header UDP (User Datagram Protocol) adalah bagian dari struktur data yang diguna
 Header UDP cukup sederhana dan tidak mengandung banyak informasi tambahan seperti header TCP. Oleh karena itu, UDP lebih cepat dan memiliki overhead yang lebih rendah daripada TCP. Namun, karena kurangnya mekanisme pengiriman ulang dan pengakuan, UDP tidak cocok untuk aplikasi yang memerlukan pengiriman data yang andal, seperti transfer file atau streaming video. Sebaliknya, UDP lebih cocok untuk aplikasi yang lebih responsif dan dapat mengatasi kerugian data yang kecil, seperti aplikasi suara atau video real-time.
 
 <a id="ip_header"></a>
+
 ## IP Header
+
 <p align = "center">
         <img src="Assets/IP_header.png" alt="Image" height ="300" />
 </p>
@@ -175,7 +202,9 @@ Header IP (Internet Protocol) adalah bagian dari struktur data yang digunakan un
 Header IP membantu dalam pengemasan dan pengarahannya paket data melalui jaringan, memungkinkan mereka untuk mencapai tujuan dengan melalui perangkat-perangkat yang sesuai dan melalui rute yang benar. Ini merupakan komponen kunci dalam infrastruktur internet dan berperan dalam pengiriman data di seluruh jaringan global.
 
 <a id="ping"></a>
+
 ## Apa itu ping?
+
 "ping" adalah perintah yang sering digunakan dalam antarmuka baris perintah (CLI) pada sistem operasi untuk menguji koneksi jaringan antara perangkat Anda dan tujuan yang ditentukan oleh alamat IP atau nama domain. Penggunaan utama perintah "ping" adalah untuk memeriksa apakah perangkat lain di jaringan dapat dijangkau dan berapa lama waktu yang diperlukan untuk paket data untuk pergi ke tujuan dan kembali (round-trip time).
 
 Ketika Anda menjalankan perintah "ping" dengan alamat IP atau nama domain tujuan, perangkat Anda akan mengirimkan paket-paket ICMP (Internet Control Message Protocol) ke tujuan. Tujuan akan merespons dengan mengirimkan paket-paket balasan. Setelah perintah "ping" selesai, Anda akan melihat informasi tentang waktu yang diperlukan untuk mengirim dan menerima paket-paket ini, serta apakah semua paket berhasil mencapai tujuan.
@@ -193,6 +222,7 @@ Hasil dari perintah "ping" biasanya mencakup informasi berikut:
 Perintah "ping" adalah alat berguna untuk mengidentifikasi masalah konektivitas dalam jaringan, melacak latensi (waktu yang diperlukan untuk data bergerak antara perangkat), dan memeriksa apakah sebuah server atau perangkat jaringan tertentu dapat dijangkau.
 
 <a id="trecert"></a>
+
 ## Apa itu trecert?
 
 "tracert" (atau "traceroute" dalam beberapa sistem operasi) adalah perintah yang digunakan dalam antarmuka baris perintah (CLI) untuk melacak rute yang diambil oleh paket data saat bergerak dari perangkat Anda ke tujuan yang ditentukan melalui jaringan. Perintah "tracert" membantu Anda memahami rute yang diikuti oleh paket data melalui berbagai perangkat jaringan, termasuk router dan switch, sebelum mencapai tujuan akhir.

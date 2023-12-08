@@ -1,4 +1,11 @@
 # Configure Mikrotik using Winbox
+
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 ## 1. Set Own Adrress
 ### Address for Router
 ![](assets/address.jpg)

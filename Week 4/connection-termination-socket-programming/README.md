@@ -1,14 +1,22 @@
 # CONNECTION TERMINATION SOCKET PROGRAMMING
 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 ## 1. quit
 
 Ketika mengetikkan "quit" di terminal client (client.c), koneksi akan ditutup sepenuhnya (full closed).
 
 Pada kode client terdapat code berikut:
+
 ```
 if (!bcmp(buffer, "quit", 4))
     break;
 ```
+
 Ini berarti jika server mengirimkan pesan "quit" kepada client, maka client akan keluar dari loop dan mengakhiri program. Dengan demikian, client akan menutup koneksi ke server secara penuh (full closed) ketika kondisi ini terpenuhi, dan tidak akan mengirim atau menerima data lagi setelah itu.
 
 Jadi, koneksi akan ditutup sepenuhnya (full closed) setelah client menerima pesan "quit" dari server.
@@ -18,6 +26,7 @@ Jadi, koneksi akan ditutup sepenuhnya (full closed) setelah client menerima pesa
 Ketika mengetikkan "close" di terminal client (client.c), koneksi akan ditutup secara setengah (half closed) dari sisi client.
 
 Pada client, terdapat code berikut:
+
 ```
 scanf("%s", buffer);
 ```

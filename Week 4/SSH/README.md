@@ -1,10 +1,18 @@
 # SSH (Secure Socket Shell) Protocol
 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 #### :bulb: Apa Itu SSH?
+
 SSH, atau Secure Shell, adalah sebuah protokol jaringan yang digunakan untuk mengamankan komunikasi antara dua sistem komputer. Protokol ini diciptakan untuk menggantikan protokol telnet dan rsh (remote shell), yang tidak aman karena mengirimkan data dalam format teks.<br>
 ![SSH](./assets/ssh.jpg)
 
 #### :bulb: Karakteristik SSH
+
 Protokol SSH memiliki beberapa karakteristik kunci yang membuatnya menjadi pilihan utama untuk mengamankan koneksi jaringan. Berikut adalah beberapa karakteristik utama dari protokol SSH:
 
 - **Enkripsi**: Salah satu karakteristik paling penting dari SSH adalah kemampuannya untuk menyediakan enkripsi yang kuat. Ini berarti data yang dikirimkan antara dua sistem dienkripsi dan tidak dapat dengan mudah dibaca oleh pihak yang tidak sah.<br>
@@ -28,6 +36,7 @@ Protokol SSH memiliki beberapa karakteristik kunci yang membuatnya menjadi pilih
 Dengan karakteristik-karakteristik ini, SSH telah menjadi standar industri untuk mengamankan koneksi jaringan dan mengakses sistem dari jarak jauh secara aman.
 
 #### :bulb: RFC-4251
+
 RFC 4251 adalah dokumen spesifikasi yang mendefinisikan arsitektur dasar dari protokol SSH (Secure Shell). Berikut adalah ringkasan dari RFC 4251:
 
 - **Judul**: RFC 4251 berjudul "The Secure Shell (SSH) Protocol Architecture".<br>

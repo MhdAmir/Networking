@@ -1,5 +1,11 @@
 # Traceroute Test
 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 ## Cara Kerja
 
 Tracert bekerja dengan cara melacak trace route suatu jaringan. Pelacakan tersebut dilakukan dengan mengirimkan paket Internet Control Message Protocol (ICMP). Paket ini, berfungsi untuk memberikan informasi apakah router yang digunakan dalam perjalanannya dapat mentransfer data secara efektif atau tidak.

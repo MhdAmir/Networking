@@ -1,5 +1,10 @@
 # Routing Table
 berikut jawaban dari penugasan Routing table : 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
 ## Ping
 Ping adalah perintah yang digunakan untuk mengukur waktu respons atau latency dari satu perangkat atau komputer ke perangkat atau komputer lain dalam jaringan.
 ### 1. Ping Antar PC 

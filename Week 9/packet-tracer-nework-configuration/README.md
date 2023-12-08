@@ -1,4 +1,10 @@
-v# PACKET TRACER NETWORK CONFIGURATION
+# PACKET TRACER NETWORK CONFIGURATION
+
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
 
 ## 1 Router - 2 Switch - 4 Pc
 

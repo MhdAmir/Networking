@@ -1,6 +1,13 @@
 # DNS (Domain Name System)
 
+## Tentang Projek
+
+Repository untuk menyimpan semua tugas pada mata kuliah Konsep Jaringan yang diampu oleh Dr. Ferry Astika Saputra ST, M.Sc ([@ferryastika](https://github.com/ferryastika)).
+
+---
+
 #### :bulb: Apa Itu DNS?
+
 Domain Name System atau DNS adalah sistem yang menerjemahkan nama domain menjadi IP address agar bisa dipahami oleh komputer saat kita mengakses sebuah website menggunakan nama domain.<br>
 
 ![DNS](./assets/dns.png)
@@ -12,6 +19,7 @@ Fungsi DNS yaitu seperti aplikasi ‘Kontak’ di smartphone yang menampilkan na
 Mau tahu lebih lanjut? Yuk baca sampai selesai, karena kami membahas selengkapnya tentang pengertian DNS beserta cara kerjanya, fungsi DNS, serta macam-macam record yang ada. Selamat membaca!
 
 #### :bulb: Cara Kerja DNS
+
 Jadi, DNS bekerja dalam beberapa langkah menggunakan proses yang disebut DNS lookup atau resolution. Untuk bisa menjalankan fungsinya
 ![DNSFLow](./assets/dnsflow.png)
 berikut adalah ringkasan alur cara kerja DNS:
